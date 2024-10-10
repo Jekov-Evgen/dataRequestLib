@@ -2,7 +2,7 @@
 #include "memory.h"
 #include "Windows.h"
 
-float GetMemory()
+extern "C" __declspec(dllexport) float GetMemory()
 {
 	MEMORYSTATUSEX dataComputer;
 	dataComputer.dwLength = sizeof(MEMORYSTATUSEX);

@@ -23,7 +23,7 @@ unsigned long long FileTimeToInt64(const FILETIME& ft)
     return (((unsigned long long)(ft.dwHighDateTime)) << 32) | ((unsigned long long)ft.dwLowDateTime);
 }
 
-float GetCPULoad()
+extern "C" __declspec(dllexport) float GetCPULoad()
 {
 	FILETIME idleTime, kernelTime, userTime;
 	return GetSystemTimes(&idleTime, &kernelTime, &userTime) ? CalculateCPULoad(FileTimeToInt64(idleTime), FileTimeToInt64(kernelTime) + FileTimeToInt64(userTime)) : -1.0f;

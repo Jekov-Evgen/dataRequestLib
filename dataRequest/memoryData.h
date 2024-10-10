@@ -1,3 +1,3 @@
 #pragma once
 
-float GetMemory();
+extern "C" __declspec(dllexport) float GetMemory();
